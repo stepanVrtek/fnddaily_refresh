@@ -1,0 +1,38 @@
+Create gmail account
+
+Create source.xls and fnddaily folder
+
+Create rule for save attachments:
+  follow this manual https://declara.com/content/ZaKk7XaR
+  settings -> filters -> new filter
+  set new filter as 'Conseq - ceny fondů' at the spreadsheet
+
+Create user
+https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
+  Go to the Google APIs Console.
+  Create a new project.
+  Click Enable API. Search for and enable the Google Drive API.
+  Create credentials for a Web Server to access Application Data.
+  Name the service account and grant it a Project Role of Editor.
+  Download the JSON file.
+  Copy the JSON file to your code directory and rename it to credentials.json
+
+Add app script for converting xls to spreadsheet
+  see convert_xls spreadsheet
+
+  To create and run a script in Drive, follow these steps:
+
+  Create/open a Google Doc or Sheet. From Tools menu, select Script editor.
+  Remove existing code and add your code. Go to File > Save > add script name > Click OK.
+  To execute, click ►, or from the Run menu, select a function. If running the script for first time, it will ask for your authentication. Check the required permissions and click Allow.
+  A yellow bar will appear at the centre-top, to indicate that the script is running.
+
+Add trigger to this spreadsheet
+  script editor -> edit –> triggers
+
+Set app user's authentication for source.xls and fnddaily folder
+
+Install python and virtual env
+
+Add to crontab (edit paths)
+0 20 * * * source <path_to_env>/virtual_env/bin/activate && python <path_to_root>/process.py

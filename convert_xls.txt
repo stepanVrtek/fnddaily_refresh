@@ -1,0 +1,18 @@
+function importXLSX(){
+  var files = DriveApp.getFolderById('1UagAtxnTot7cQVVTnlzNwSh9QA10zBMZ').searchFiles('title contains ".xls"');
+  while(files.hasNext()) {
+    var xFile = files.next();
+    var name = xFile.getName();
+    if (name.indexOf('.xls')) {
+      var ID = xFile.getId();
+      var xBlob = xFile.getBlob();
+      var newFile = {
+        title : name+'_converted',
+        key : ID,
+        parents: [{"id": "1UagAtxnTot7cQVVTnlzNwSh9QA10zBMZ"}]
+      }
+      file = Drive.Files.insert(newFile, xBlob, {convert: true});
+      rtrnFromDLET = Drive.Files.remove(ID);
+    }
+  }
+}
